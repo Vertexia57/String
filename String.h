@@ -50,6 +50,10 @@ public:
 	char& operator[](size_t _index);
 	const char& operator[](size_t _index) const;
 
+	// [!] Added Functionality
+	String& operator+(const String& _other); // String + String
+	String& operator+(const char* _other); // String + Char*
+	friend String operator+(const char* _first, const String& _second); // Char* + String
 private:
 	char* m_Str;
 	size_t m_Length;

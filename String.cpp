@@ -319,3 +319,24 @@ const char& String::operator[](size_t _index) const
 {
 	return CharacterAt(_index);
 }
+
+// Appends the second string to the first one, concatonating them
+String& String::operator+(const String& _other)
+{
+	Append(_other);
+	return *this;
+}
+
+// Appends the second string to the first one, concatonating them
+String& String::operator+(const char* _other)
+{
+	Append(_other);
+	return *this;
+}
+
+// Appends the second string to the first one, concatonating them
+String operator+(const char* _first, const String& _second)
+{
+	String(_first).Append(_second);
+	return String();
+}
