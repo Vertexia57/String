@@ -5,10 +5,11 @@
 
 // Base initialiser
 String::String()
-	: m_Str(nullptr)
-	, m_Capacity(0)
-	, m_Length(0)
 {
+	m_Length = 0;
+	m_Capacity = 1;
+	m_Str = new char[1];
+	m_Str[0] = '\0';
 }
 
 // Const Char initialiser
@@ -320,23 +321,52 @@ const char& String::operator[](size_t _index) const
 	return CharacterAt(_index);
 }
 
-// Appends the second string to the first one, concatonating them
-String& String::operator+(const String& _other)
+// Appends the second string to the first one, concatonating them and return a new temporaty value
+String String::operator+(const String& _other)
 {
-	Append(_other);
-	return *this;
+	String temp = *this;
+	temp.Append(_other);
+	return temp;
 }
 
-// Appends the second string to the first one, concatonating them
-String& String::operator+(const char* _other)
+// Appends the second string to the first one, concatonating them and return a new temporaty value
+String String::operator+(const char* _other)
 {
-	Append(_other);
-	return *this;
+	String temp = *this;
+	temp.Append(_other);
+	return temp;
 }
 
-// Appends the second string to the first one, concatonating them
+// Appends the second string to the first one, concatonating them and return a new temporaty value
 String operator+(const char* _first, const String& _second)
 {
 	String(_first).Append(_second);
 	return String();
+}
+
+// Appends the second string to the first one, concatonating them
+String& String::operator+=(const String& _other)
+{
+	Append(_other);
+	return *this;
+}
+
+// Appends the second string to the first one, concatonating them
+String& String::operator+=(const char* _other)
+{
+	Append(_other);
+	return *this;
+}
+
+// Appends the second string to the first one, concatonating them
+String operator+=(const char* _first, const String& _second)
+{
+	String(_first).Append(_second);
+	return String();
+}
+
+std::ostream& operator<<(std::ostream& console, const String& _string)
+{
+	console << _string.CStr();
+	return console;
 }

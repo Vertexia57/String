@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+
 // Set a max size, necessary as size_t is unsigned
 #define SIZE_T_MAX (size_t)(-1)
 
@@ -51,9 +53,22 @@ public:
 	const char& operator[](size_t _index) const;
 
 	// [!] Added Functionality
-	String& operator+(const String& _other); // String + String
-	String& operator+(const char* _other); // String + Char*
+	
+	// Appends the second string to the first one, concatonating them and return a new temporaty value
+	String operator+(const String& _other); // String + String
+	// Appends the second string to the first one, concatonating them and return a new temporaty value
+	String operator+(const char* _other); // String + Char*
+	// Appends the second string to the first one, concatonating them and return a new temporaty value
 	friend String operator+(const char* _first, const String& _second); // Char* + String
+
+	// Appends the second string to the first one, concatonating them
+	String& operator+=(const String& _other); // String + String
+	// Appends the second string to the first one, concatonating them
+	String& operator+=(const char* _other); // String + Char*
+	// Appends the second string to the first one, concatonating them
+	friend String operator+=(const char* _first, const String& _second); // Char* + String
+
+	friend std::ostream& operator<<(std::ostream& console, const String& _string); // Allows for std::cout << String
 private:
 	char* m_Str;
 	size_t m_Length;
