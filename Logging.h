@@ -18,10 +18,10 @@ public:
 	void addLog(String text, int level);
 
 	// Outputs the log to the console
-	void outputLog();
+	void outputLog() const;
 
 	// Saves the log to a file
-	void saveLog(String location);
+	void saveLog(String location) const;
 
 	// Clears the log, removing all text in it
 	void clearLog();

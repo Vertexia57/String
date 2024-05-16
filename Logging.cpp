@@ -4,9 +4,16 @@
 #include <iostream>
 #include <fstream>
 
+static bool file_exists(const std::string& name) {
+	std::ifstream f(name.c_str());
+	return f.good();
+}
+
 Logger::Logger()
 {
-	m_Log = String();
+	m_Log = String("\n[------------------------------"
+				   "\n    | [ BEGINNING OF LOG ] |   "
+				   "\n[------------------------------\n\n\n");
 }
 
 void Logger::addLog(String text, int level)
@@ -44,17 +51,29 @@ void Logger::addLog(String text, int level)
 	m_Log.Append(line + "\n");
 }
 
-void Logger::outputLog()
+void Logger::outputLog() const
 {
 	// Output the combined log to the console
 	std::cout << m_Log << "\n";
 }
 
-void Logger::saveLog(String location)
+void Logger::saveLog(String location) const
 {
-	std::ofstream out(location.CStr());
-	out << m_Log;
-	out.close();
+	if (!file_exists(location.CStr()))
+	{
+		std::ofstream out(location.CStr(), std::ios::out);
+		out << m_Log;
+		out.close();
+	}
+	else
+	{
+		std::ofstream out(location.CStr(), std::ios::out | std::ios::app);
+		out << m_Log;
+		out << "\n[------------------------------"
+			   "\n       | [ END OF LOG ] |   "
+			   "\n[------------------------------\n\n\n";
+		out.close();
+	}
 }
 
 void Logger::clearLog()
