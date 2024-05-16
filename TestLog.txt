@@ -1,0 +1,207 @@
+
+[------------------------------
+    | [ BEGINNING OF LOG ] |   
+[------------------------------
+
+
+[INFO @ Thu May 16 16:31:41 2024] 
+ >--TEST----------------< 
+  - Function Ran    : Append
+  - Expected Size   : 27
+
+  + Starting String : Hello World! 
+  | + Start Size    : 12 
+  + Ending String   : Hello World! Goodbye World. 
+  | + End Size      : 27 
+ >--PASSED--------------< 
+
+
+[INFO @ Thu May 16 16:31:42 2024] 
+ >--TEST----------------< 
+  - Function Ran    : Prepend
+  - Expected Size   : 34
+
+  + Starting String : Hello World! 
+  | + Start Size    : 12 
+  + Ending String   : *crawls out of sewer* Hello World! 
+  | + End Size      : 34 
+ >--PASSED--------------< 
+
+
+[INFO @ Thu May 16 16:31:42 2024] 
+ >--TEST----------------< 
+  - Function Ran    : Insert
+  - Expected Size   : 18
+
+  + Starting String : Hello World! 
+  | + Start Size    : 12 
+  + Ending String   : Hello Cruel World! 
+  | + End Size      : 18 
+ >--PASSED--------------< 
+
+
+[INFO @ Thu May 16 16:31:42 2024] 
+ >--TEST----------------< 
+  - Function Ran    : Remove
+  - Expected Size   : 6
+
+  + Starting String : Hello World! 
+  | + Start Size    : 12 
+  + Ending String   : Hello! 
+  | + End Size      : 6 
+ >--PASSED--------------< 
+
+
+[INFO @ Thu May 16 16:31:42 2024] 
+ >--TEST----------------< 
+  - Function Ran    : Replace
+  - Expected Size   : 14
+
+  + Starting String : Hello World! 
+  | + Start Size    : 12 
+  + Ending String   : Goodbye World! 
+  | + End Size      : 14 
+ >--PASSED--------------< 
+
+
+[INFO @ Thu May 16 16:31:42 2024] 
+ >--TEST----------------< 
+  - Function Ran    : Replace All
+  - Expected Size   : 41
+
+  + Starting String : Hello World! Hello You! Hello ALL!! 
+  | + Start Size    : 35 
+  + Ending String   : Goodbye World! Goodbye You! Goodbye ALL!! 
+  | + End Size      : 41 
+ >--PASSED--------------< 
+
+
+[INFO @ Thu May 16 16:31:42 2024] 
+ >--TEST----------------< 
+  - Function Ran    : Substring
+  - Expected Size   : 8
+
+  + Starting String : Hello World! Frogs am I right? 
+  | + Start Size    : 30 
+  + Ending String   : Frogs am 
+  | + End Size      : 8 
+ >--PASSED--------------< 
+
+
+[INFO @ Thu May 16 16:31:42 2024] 
+ >--TEST----------------< 
+  - Function Ran    : ToLower
+  - Expected Size   : 35
+
+  + Starting String : Hello World! Hello You! Hello ALL!! 
+  | + Start Size    : 35 
+  + Ending String   : hello world! hello you! hello all!! 
+  | + End Size      : 35 
+ >--PASSED--------------< 
+
+
+[INFO @ Thu May 16 16:31:42 2024] 
+ >--TEST----------------< 
+  - Function Ran    : ToUpper
+  - Expected Size   : 35
+
+  + Starting String : Hello World! Hello You! Hello ALL!! 
+  | + Start Size    : 35 
+  + Ending String   : HELLO WORLD! HELLO YOU! HELLO ALL!! 
+  | + End Size      : 35 
+ >--PASSED--------------< 
+
+
+[INFO @ Thu May 16 16:31:42 2024] 
+ --------> Passed All Tests! <--------
+
+
+[------------------------------
+    | [ BEGINNING OF LOG ] |   
+[------------------------------
+
+
+[INFO @ Thu May 16 16:40:55 2024] Append, Expected: 27, Recieved: 27, Test passed
+
+[INFO @ Thu May 16 16:40:57 2024] Prepend, Expected: 34, Recieved: 34, Test passed
+
+[INFO @ Thu May 16 16:40:59 2024] Insert, Expected: 18, Recieved: 18, Test passed
+
+[INFO @ Thu May 16 16:41:00 2024] Remove, Expected: 6, Recieved: 6, Test passed
+
+[INFO @ Thu May 16 16:41:00 2024] Replace, Expected: 14, Recieved: 14, Test passed
+
+[INFO @ Thu May 16 16:41:00 2024] Replace All, Expected: 41, Recieved: 41, Test passed
+
+[INFO @ Thu May 16 16:41:01 2024] Substring, Expected: 8, Recieved: 8, Test passed
+
+[INFO @ Thu May 16 16:41:01 2024] ToLower, Expected: 35, Recieved: 35, Test passed
+
+[INFO @ Thu May 16 16:41:02 2024] ToUpper, Expected: 35, Recieved: 35, Test passed
+
+[INFO @ Thu May 16 16:41:02 2024] 
+ --------> Passed All Tests! <--------
+
+
+[------------------------------
+       | [ END OF LOG ] |   
+[------------------------------
+
+
+
+[------------------------------
+    | [ BEGINNING OF LOG ] |   
+[------------------------------
+
+
+[INFO @ Thu May 16 16:41:08 2024] Append, Expected: 27, Recieved: 27, Test passed
+
+[INFO @ Thu May 16 16:41:08 2024] Prepend, Expected: 34, Recieved: 34, Test passed
+
+[INFO @ Thu May 16 16:41:08 2024] Insert, Expected: 18, Recieved: 18, Test passed
+
+[INFO @ Thu May 16 16:41:08 2024] Remove, Expected: 6, Recieved: 6, Test passed
+
+[INFO @ Thu May 16 16:41:08 2024] Replace, Expected: 14, Recieved: 14, Test passed
+
+[INFO @ Thu May 16 16:41:08 2024] Replace All, Expected: 41, Recieved: 41, Test passed
+
+[INFO @ Thu May 16 16:41:08 2024] Substring, Expected: 8, Recieved: 8, Test passed
+
+[INFO @ Thu May 16 16:41:08 2024] ToLower, Expected: 35, Recieved: 35, Test passed
+
+[INFO @ Thu May 16 16:41:08 2024] ToUpper, Expected: 35, Recieved: 35, Test passed
+
+[INFO @ Thu May 16 16:41:08 2024] 
+ --------> Passed All Tests! <--------
+
+
+[------------------------------
+       | [ END OF LOG ] |   
+[------------------------------
+
+
+
+[------------------------------
+    | [ BEGINNING OF LOG ] |   
+[------------------------------
+
+
+[INFO @ Thu May 16 16:41:20 2024] Append, Expected: 27, Recieved: 27, Test passed
+[INFO @ Thu May 16 16:41:20 2024] Prepend, Expected: 34, Recieved: 34, Test passed
+[INFO @ Thu May 16 16:41:20 2024] Insert, Expected: 18, Recieved: 18, Test passed
+[INFO @ Thu May 16 16:41:20 2024] Remove, Expected: 6, Recieved: 6, Test passed
+[INFO @ Thu May 16 16:41:20 2024] Replace, Expected: 14, Recieved: 14, Test passed
+[INFO @ Thu May 16 16:41:20 2024] Replace All, Expected: 41, Recieved: 41, Test passed
+[INFO @ Thu May 16 16:41:20 2024] Substring, Expected: 8, Recieved: 8, Test passed
+[INFO @ Thu May 16 16:41:20 2024] ToLower, Expected: 35, Recieved: 35, Test passed
+[INFO @ Thu May 16 16:41:20 2024] ToUpper, Expected: 35, Recieved: 35, Test passed
+[INFO @ Thu May 16 16:41:20 2024] 
+ --------> Passed All Tests! <--------
+
+
+[------------------------------
+       | [ END OF LOG ] |   
+[------------------------------
+
+

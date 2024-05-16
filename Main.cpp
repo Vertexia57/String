@@ -7,14 +7,9 @@ bool runTest(String FunctionDefinition, size_t ExpectedSize, String PreString, S
 {
 	// Create the log output
 	String test = String();
-	test += "\n >--TEST----------------< \n";
-	test += String("  - Function Ran    : ") + FunctionDefinition.CStr() + "\n";
-	test += String("  - Expected Size   : ") + std::to_string(ExpectedSize).c_str() + "\n\n";
-	test += String("  + Starting String : ") + PreString.CStr() + " \n";
-	test += String("  | + Start Size    : ") + std::to_string(sizeof(char) * PreString.Length()).c_str() + " \n";
-	test += String("  + Ending String   : ") + PostString.CStr() + " \n";
-	test += String("  | + End Size      : ") + std::to_string(sizeof(char) * PostString.Length()).c_str() + " \n";
-	test += String(" >--") + ((sizeof(char) * PostString.Length() == ExpectedSize) ? "PASSED" : "FAILED") + "--------------< \n\n";
+	test += FunctionDefinition + ", Expected: " + std::to_string(ExpectedSize).c_str()
+		+ ", Recieved: " + std::to_string(sizeof(char) * PostString.Length()).c_str()
+		+ ", Test " + ((sizeof(char) * PostString.Length() == ExpectedSize) ? "passed" : "failed");
 	
 	// Check if it's passed and push it to the logger singleton
 	bool passed = (sizeof(char) * PostString.Length() == ExpectedSize);
@@ -23,8 +18,6 @@ bool runTest(String FunctionDefinition, size_t ExpectedSize, String PreString, S
 	else
 		logger.addLog(test, LOG_LEVEL_ERROR);
 
-	// Pause to let the user read it
-	system("pause");
 	return passed; // Return if the test passed or not
 }
 
