@@ -100,5 +100,7 @@ int main()
 	else
 		logger.addLog("\n --------> Failed A Test. <--------\n", LOG_LEVEL_ERROR);
 
+	logger.saveLog("TestLog.txt");
+
 	return 0;
 }

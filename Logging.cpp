@@ -2,6 +2,7 @@
 #include <chrono>
 #include <ctime>
 #include <iostream>
+#include <fstream>
 
 Logger::Logger()
 {
@@ -47,6 +48,13 @@ void Logger::outputLog()
 {
 	// Output the combined log to the console
 	std::cout << m_Log << "\n";
+}
+
+void Logger::saveLog(String location)
+{
+	std::ofstream out(location.CStr());
+	out << m_Log;
+	out.close();
 }
 
 void Logger::clearLog()
