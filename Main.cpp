@@ -1,18 +1,31 @@
 #include <iostream>
+#include "Logging.h"
 #include "String.h"
+#include <string> // shhhhh, Only used for std::to_string, I don't want to figure out converting between int and string
 
 bool runTest(String FunctionDefinition, size_t ExpectedSize, String PreString, String PostString)
 {
-	std::cout << "\n >--TEST----------------< \n";
-	std::cout << "  - Function Ran    : " << FunctionDefinition.CStr() << "\n";
-	std::cout << "  - Expected Size   : " << ExpectedSize << "\n\n";
-	std::cout << "  + Starting String : " << PreString.CStr() << " \n";
-	std::cout << "  | + Start Size    : " << sizeof(char) * PreString.Length() << " \n";
-	std::cout << "  + Ending String   : " << PostString.CStr() << " \n";
-	std::cout << "  | + End Size      : " << sizeof(char) * PostString.Length() << " \n";
-	std::cout << " >--" << ((sizeof(char) * PostString.Length() == ExpectedSize) ? "PASSED" : "FAILED") << "--------------< \n\n";
+	// Create the log output
+	String test = String();
+	test += "\n >--TEST----------------< \n";
+	test += String("  - Function Ran    : ") + FunctionDefinition.CStr() + "\n";
+	test += String("  - Expected Size   : ") + std::to_string(ExpectedSize).c_str() + "\n\n";
+	test += String("  + Starting String : ") + PreString.CStr() + " \n";
+	test += String("  | + Start Size    : ") + std::to_string(sizeof(char) * PreString.Length()).c_str() + " \n";
+	test += String("  + Ending String   : ") + PostString.CStr() + " \n";
+	test += String("  | + End Size      : ") + std::to_string(sizeof(char) * PostString.Length()).c_str() + " \n";
+	test += String(" >--") + ((sizeof(char) * PostString.Length() == ExpectedSize) ? "PASSED" : "FAILED") + "--------------< \n\n";
+	
+	// Check if it's passed and push it to the logger singleton
+	bool passed = (sizeof(char) * PostString.Length() == ExpectedSize);
+	if (passed)
+		logger.addLog(test, LOG_LEVEL_INFO);
+	else
+		logger.addLog(test, LOG_LEVEL_ERROR);
+
+	// Pause to let the user read it
 	system("pause");
-	return (sizeof(char) * PostString.Length() == ExpectedSize);
+	return passed; // Return if the test passed or not
 }
 
 int main()
@@ -83,9 +96,9 @@ int main()
 
 	// Output test status
 	if (AllTests)
-		std::cout << "\n --------> Passed All Tests! <--------\n";
+		logger.addLog("\n --------> Passed All Tests! <--------\n", LOG_LEVEL_INFO);
 	else
-		std::cout << "\n --------> Failed A Test. <--------\n";
+		logger.addLog("\n --------> Failed A Test. <--------\n", LOG_LEVEL_ERROR);
 
 	return 0;
 }

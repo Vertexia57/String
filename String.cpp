@@ -340,8 +340,7 @@ String String::operator+(const char* _other)
 // Appends the second string to the first one, concatonating them and return a new temporaty value
 String operator+(const char* _first, const String& _second)
 {
-	String(_first).Append(_second);
-	return String();
+	return String(_first).Append(_second);
 }
 
 // Appends the second string to the first one, concatonating them
